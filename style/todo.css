@@ -1,0 +1,53 @@
+.todo-page {
+	margin: 1rem 1rem;
+}
+
+.todo-page h1 {
+	font-family: var(--primary-font)
+}
+
+.todo-page h2 {
+	font-family: var(--primary-font)
+}
+
+.todo-page .todo-page-date {
+	text-transform: capitalize;
+	font-family: var(--primary-font)
+}
+
+.todo-section-today,
+.todo-section-upcoming {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+
+	background-color: var(--base-color);
+	margin-top: 1rem;
+}
+
+.todo-card {
+	font-family: var(--primary-font);
+	background-color: var(--secondary-color);
+	border-left: solid 7px var(--primary-color);
+	border-radius: 10px;
+
+	padding: 0.5rem 0.5rem;
+	margin: 0.5rem 0;
+}
+
+.todo-card p {
+	margin: 0.5rem 0;
+}
+
+.todo-section .todo-card:first-child {
+	margin-top: 0rem;
+}
+
+.todo-card .todo-time-box {
+	display: flex;
+}
+
+.todo-card .todo-time-box p {
+
+	margin: 0 1px
+}
