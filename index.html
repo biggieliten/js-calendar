@@ -13,9 +13,25 @@
 	<header class="header">
 		<img src="assets/logo.svg" alt="logo">
 	</header>
-	<section class="calendar-section"></section>
-	<aside class="aside">
-	</aside>
+	<div class="main-wrapper">
+
+		<!-- Hide aside in mobile view -->
+		<aside class="aside">
+		</aside>
+		<main>
+			<section class="calendar-section"></section>
+
+			<!-- Hide nav in desktop view -->
+			<nav class="mobile-navbar">
+				<button>
+					<span class="calendar-icon"><a href="/index.html"></a></span>
+				</button>
+				<button>
+					<span class="todos-icon"><a href="/mobile-todos.html"></a></span>
+				</button>
+			</nav>
+		</main>
+	</div>
 </body>
 
 </html>
