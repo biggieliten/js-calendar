@@ -5,13 +5,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="stylesheet" href="style/main.css">
+	<link rel="stylesheet" href="style/header.css">
 	<script src="script/main.js"></script>
 	<title>OnlyPlans</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
 	<header class="header">
-		<img src="assets/logo.svg" alt="logo">
+		<img src="assets/logo.svg" alt="logo" class="logo">
+		<nav class="navbar">
+			<div class="nav-side">
+				<span class="nav-item">Din kalender</span>
+			</div>
+			<div class="nav-side hide-mobile show-desktop" id="nav-right-desktop">
+				<a href="">
+					<span class="material-symbols-outlined nav-item">notifications</span>
+				</a>
+				<a href="">
+					<span class="material-symbols-outlined nav-item">account_circle</span>
+				</a>
+			</div>
+			<div class="nav-side burger-div" id="nav-right-desktop">
+				<a href="">
+					<span class="material-symbols-outlined nav-item">menu</span>
+				</a>
+			</div>
+		</nav>
 	</header>
 	<div class="main-wrapper">
 
