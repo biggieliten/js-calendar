@@ -58,7 +58,7 @@ function createTodoCard(todo, showDate) {
 		todoCard.append(date);
 	}
 
-	todoCard.append();
+	todoCard.append(timeBox);
 
 	return todoCard
 }
@@ -99,7 +99,7 @@ let todos = [
 		startAt: new Date("2026-05-03T11:30:00"),
 		endAt: new Date("2026-05-03T11:45:00"),
 		isDone: false
-	}
+	},
 ];
 
 renderTodoCards();
