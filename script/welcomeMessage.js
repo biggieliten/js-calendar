@@ -2,6 +2,8 @@ const welcomeDay = document.getElementById("welcome-day");
 const welcomeDate = document.getElementById("welcome-date");
 const welcomeTime = document.getElementById("welcome-time");
 
+setInterval(setDateString, 5000);
+
 function setDateString() {
     let locale = "sv";
     welcomeDay.innerHTML = getDayName(locale);
@@ -13,26 +15,7 @@ setDateString();
 
 function getDayName(locale) {
     const date = new Date();
-    const today = date.toLocaleDateString(locale, { weekday: "long"});
-
-    switch (today) {
-        case "måndag":
-            return "Måndag";
-        case "tisdag":
-            return "Tisdag";
-        case "onsdag":
-            return "Onsdag";
-        case "torsdag":
-            return "Torsdag";
-        case "fredag":
-            return "Fredag";
-        case "lördag":
-            return "Lördag";
-        case "söndag":
-            return "Söndag";
-        default:
-            return "Okänd dag";
-    }
+    return date.toLocaleDateString(locale, { weekday: "long"});
 }
 
 function getDate(locale) {
@@ -42,5 +25,5 @@ function getDate(locale) {
 
 function getTime(locale) {
     const date = new Date();
-    return date.toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit"});
+    return date.toLocaleTimeString(locale, { hour: "numeric", minute: "numeric"});
 }

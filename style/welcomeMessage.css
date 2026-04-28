@@ -1,0 +1,24 @@
+.welcome-section {
+    width: fit-content;
+    padding: 5px;
+    margin: 5px;
+}
+
+.welcome-info {
+    display: flex;
+    gap: 5px;
+}
+
+.welcome-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.welcome-info-text {
+    color: rgba(0, 0, 0, 0.56);
+    font-weight: 400;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
