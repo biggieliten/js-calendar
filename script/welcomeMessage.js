@@ -1,8 +1,12 @@
-const welcomeElement = document.getElementById("welcome-date");
+const welcomeDay = document.getElementById("welcome-day");
+const welcomeDate = document.getElementById("welcome-date");
+const welcomeTime = document.getElementById("welcome-time");
 
 function setDateString() {
-    let current = new Date();
-    welcomeElement.innerHTML = getDayName();
+    let locale = "sv";
+    welcomeDay.innerHTML = getDayName(locale);
+    welcomeDate.innerHTML = getDate(locale);
+    welcomeTime.innerHTML = getTime(locale);
 }
 
 setDateString();
@@ -29,4 +33,14 @@ function getDayName(locale) {
         default:
             return "Okänd dag";
     }
+}
+
+function getDate(locale) {
+    const date = new Date();
+    return date.toLocaleDateString(locale, {month: "short", day: "2-digit"});
+}
+
+function getTime(locale) {
+    const date = new Date();
+    return date.toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit"});
 }
