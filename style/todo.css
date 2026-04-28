@@ -6,12 +6,17 @@
 	font-family: var(--primary-font)
 }
 
+.todo-page h2 {
+	font-family: var(--primary-font)
+}
+
 .todo-page .todo-page-date {
 	text-transform: capitalize;
 	font-family: var(--primary-font)
 }
 
-.todo-section {
+.todo-section-today,
+.todo-section-upcoming {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
