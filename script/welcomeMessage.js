@@ -2,6 +2,7 @@ const welcomeDay = document.getElementById("welcome-day");
 const welcomeDate = document.getElementById("welcome-date");
 const welcomeTime = document.getElementById("welcome-time");
 
+setDateString();
 setInterval(setDateString, 5000);
 
 function setDateString() {
@@ -11,7 +12,6 @@ function setDateString() {
     welcomeTime.innerHTML = getTime(locale);
 }
 
-setDateString();
 
 function getDayName(locale) {
     const date = new Date();
