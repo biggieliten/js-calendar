@@ -4,44 +4,66 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=, initial-scale=1.0">
+	<link rel="icon" href="assets/favicon.ico">
 	<link rel="stylesheet" href="style/main.css">
 	<link rel="stylesheet" href="style/welcomeMessage.css">
-	<script src="script/main.js"></script>
-	<script src="script/welcomeMessage.js" defer></script>
+	<link rel="stylesheet" href="style/header.css">
+	<link rel="stylesheet" href="style/todo.css">
+	<script type="module" src="script/main.js"></script>
 	<title>OnlyPlans</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
 	<header class="header">
-		<img src="assets/logo.svg" alt="logo">
+		<img src="assets/logo.svg" alt="logo" class="logo">
+		<nav class="navbar">
+			<div class="nav-side">
+				<span class="nav-item">Din kalender</span>
+			</div>
+			<div class="nav-side hide-mobile show-desktop" id="nav-right-desktop">
+				<a href="">
+					<span class="material-symbols-outlined nav-item">notifications</span>
+				</a>
+				<a href="">
+					<span class="material-symbols-outlined nav-item">account_circle</span>
+				</a>
+			</div>
+			<div class="nav-side burger-div" id="nav-right-desktop">
+				<a href="">
+					<span class="material-symbols-outlined nav-item">menu</span>
+				</a>
+			</div>
+		</nav>
 	</header>
 	<div class="main-wrapper">
 
 		<!-- Hide aside in mobile view -->
 		<aside class="aside">
-			<section class="welcome-section">
-				<h2 class="welcome-title">Välkommen</h2>
-				<div class="welcome-info">
-					<p class="welcome-info-text capitalize" id="welcome-day">veckodag</p>
-					<p class="welcome-info-text capitalize" id="welcome-date">månad datum</p>
-					<p class="welcome-info-text" id="welcome-time">tid</p>
-				</div>
-			</section>
 		</aside>
 		<main>
 			<section class="calendar-section"></section>
-
-			<!-- Hide nav in desktop view -->
-			<nav class="mobile-navbar">
-				<button>
-					<span class="calendar-icon"><a href="/index.html"></a></span>
-				</button>
-				<button>
-					<span class="todos-icon"><a href="/mobile-todos.html"></a></span>
-				</button>
-			</nav>
 		</main>
 	</div>
+
+	<div class="todo-wrapper">
+		<h1>Today</h1>
+		<section class="todo-section-today"></section>
+		<h2>Upcoming</h2>
+		<section class="todo-section-upcoming"></section>
+		<h2>Completed</h2>
+		<section class="todo-section-completed"></section>
+	</div>
+
+	<!-- Hide nav in desktop view -->
+	<nav class="mobile-navbar">
+		<button>
+			<span class="calendar-icon">Calendar</span>
+		</button>
+		<button>
+			<span class="todos-icon">Todos</span>
+		</button>
+	</nav>
 </body>
 
 </html>
