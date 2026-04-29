@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="style/header.css">
 	<link rel="stylesheet" href="style/todo.css">
 	<link rel="stylesheet" href="style/welcomeMessage.css">
+	<link rel="stylesheet" href="style/navbar.css">
 	<script type="module" src="script/main.js"></script>
 	<title>OnlyPlans</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -49,28 +50,34 @@
 				</div>
 			</section>
 		</aside>
+		<div class="todo-wrapper">
+			<h1>Today</h1>
+			<section class="todo-section-today"></section>
+			<h2>Upcoming</h2>
+			<section class="todo-section-upcoming"></section>
+			<h2>Completed</h2>
+			<section class="todo-section-completed"></section>
+		</div>
+
+		<!-- <aside class="todo-sidebar ">
+		</aside> -->
+
 		<main>
 			<section class="calendar-section"></section>
 		</main>
 	</div>
 
-	<div class="todo-wrapper">
-		<h1>Today</h1>
-		<section class="todo-section-today"></section>
-		<h2>Upcoming</h2>
-		<section class="todo-section-upcoming"></section>
-		<h2>Completed</h2>
-		<section class="todo-section-completed"></section>
-	</div>
 
 	<!-- Hide nav in desktop view -->
 	<nav class="mobile-navbar">
-		<button>
-			<span class="calendar-icon">Calendar</span>
-		</button>
-		<button>
-			<span class="todos-icon">Todos</span>
-		</button>
+		<button class="nav-btn-calendar">
+			<span class="material-symbols-outlined calendar-icon active">
+				calendar_month
+			</span> </button>
+		<button class="nav-btn-todo">
+			<span class="material-symbols-outlined todo-icon">
+				assignment
+			</span> </button>
 	</nav>
 </body>
 
