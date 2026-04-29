@@ -7,9 +7,9 @@ setInterval(setDateString, 5000);
 
 function setDateString() {
     let locale = "sv";
-    welcomeDay.innerHTML = getDayName(locale);
-    welcomeDate.innerHTML = getDate(locale);
-    welcomeTime.innerHTML = getTime(locale);
+    welcomeDay.textContent = getDayName(locale);
+    welcomeDate.textContent = getDate(locale);
+    welcomeTime.textContent = getTime(locale);
 }
 
 
