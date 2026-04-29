@@ -1,10 +1,14 @@
 .todo-wrapper {
 	margin: 1rem;
+	max-width: 100%;
+
+	overflow-y: scroll;
 }
 
 .todo-wrapper h1,
 .todo-wrapper h2 {
-	font-family: var(--primary-font)
+	font-family: var(--primary-font);
+	width: 80%;
 }
 
 .todo-wrapper .header-date {
@@ -44,6 +48,10 @@
 	margin: 0.5rem 0;
 }
 
+.todo-card .todo-description {
+	width: 80%;
+}
+
 .todo-card .todo-time-box {
 	display: flex;
 }
@@ -67,13 +75,11 @@
 	padding: 10px;
 }
 
-@media(min-width: 860px) {
+@media(max-width: 767px) {
 	.todo-wrapper {
 		display: none;
-	}
+		width: clamp(250px, 35vw, 40vw);
 
-	.mobile-navbar {
-		display: none;
 	}
 
 }

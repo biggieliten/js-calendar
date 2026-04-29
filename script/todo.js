@@ -26,18 +26,6 @@ export function loadTodoCards() {
 	});
 }
 
-// export function renderTodoPageDate() {
-// 	const dateElement = document.querySelector(".header-date");
-
-// 	console.log(dateElement, "date element");
-
-// 	const currentDate = new Date();
-
-// 	dateElement.textContent = `
-// 	${currentDate.toLocaleDateString("sv", { weekday: "long" })}, 
-// 	${currentDate.toLocaleDateString("sv", { day: "2-digit", month: "long" })}`
-// }
-
 function createTodoCard(todo, showDate) {
 	const todoCard = document.createElement("article")
 	const title = document.createElement("h2")
@@ -47,6 +35,7 @@ function createTodoCard(todo, showDate) {
 	const timeBox = document.createElement("div")
 	const checkBox = document.createElement("input")
 
+	description.classList = "todo-description"
 	checkBox.type = "checkbox"
 	checkBox.classList = "todo-check"
 	todoCard.classList = "todo-card"
@@ -135,3 +124,14 @@ function addTodo() {
     loadTodoCards();
 	console.log(todos);
 }
+// export function renderTodoPageDate() {
+// 	const dateElement = document.querySelector(".header-date");
+
+// 	console.log(dateElement, "date element");
+
+// 	const currentDate = new Date();
+
+// 	dateElement.textContent = `
+// 	${currentDate.toLocaleDateString("sv", { weekday: "long" })},
+// 	${currentDate.toLocaleDateString("sv", { day: "2-digit", month: "long" })}`
+// }
