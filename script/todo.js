@@ -1,6 +1,7 @@
-function renderTodoCards() {
+export function loadTodoCards() {
 	const todoSectionToday = document.querySelector(".todo-section-today")
 	const todoSectionUpcoming = document.querySelector(".todo-section-upcoming")
+	const todoSectionCompleted = document.querySelector(".todo-section-completed")
 
 	const sortedTodos = todos.sort((t1, t2) => t1.startAt - t2.startAt)
 
@@ -12,21 +13,26 @@ function renderTodoCards() {
 		if (today == todoDate) {
 			todoSectionToday.append(createTodoCard(t, false))
 		}
+		else if (t.isDone) {
+			todoSectionCompleted.append(createTodoCard(t, true))
+		}
 		else {
 			todoSectionUpcoming.append(createTodoCard(t, true))
 		}
 	});
-
 }
 
-function renderTodoPageDate() {
-	const dateElement = document.querySelector(".todo-page-date");
-	const currentDate = new Date();
+// export function renderTodoPageDate() {
+// 	const dateElement = document.querySelector(".header-date");
 
-	dateElement.textContent = `
-	${currentDate.toLocaleDateString("sv", { weekday: "long" })}, 
-	${currentDate.toLocaleDateString("sv", { day: "2-digit", month: "long" })}`
-}
+// 	console.log(dateElement, "date element");
+
+// 	const currentDate = new Date();
+
+// 	dateElement.textContent = `
+// 	${currentDate.toLocaleDateString("sv", { weekday: "long" })}, 
+// 	${currentDate.toLocaleDateString("sv", { day: "2-digit", month: "long" })}`
+// }
 
 function createTodoCard(todo, showDate) {
 	const todoCard = document.createElement("article")
@@ -35,7 +41,10 @@ function createTodoCard(todo, showDate) {
 	const startAt = document.createElement("p")
 	const endAt = document.createElement("p")
 	const timeBox = document.createElement("div")
+	const checkBox = document.createElement("input")
 
+	checkBox.type = "checkbox"
+	checkBox.classList = "todo-check"
 	todoCard.classList = "todo-card"
 	timeBox.classList = "todo-time-box"
 
@@ -58,7 +67,7 @@ function createTodoCard(todo, showDate) {
 		todoCard.append(date);
 	}
 
-	todoCard.append(timeBox);
+	todoCard.append(timeBox, checkBox);
 
 	return todoCard
 }
@@ -71,7 +80,7 @@ let todos = [
 		createdAt: new Date("2026-04-28T08:15:00"),
 		startAt: new Date("2026-04-28T09:30:00"),
 		endAt: new Date("2026-04-28T10:00:00"),
-		isDone: false
+		isDone: true
 	},
 	{
 		id: 2,
@@ -87,8 +96,8 @@ let todos = [
 		title: "Prepare presentation",
 		description: "Finish the slides for Friday's project update.",
 		createdAt: new Date("2026-04-26T13:10:00"),
-		startAt: new Date("2026-05-01T14:00:00"),
-		endAt: new Date("2026-05-01T16:00:00"),
+		startAt: new Date("2026-04-29T14:00:00"),
+		endAt: new Date("2026-04-29T16:00:00"),
 		isDone: false
 	},
 	{
@@ -101,6 +110,3 @@ let todos = [
 		isDone: false
 	},
 ];
-
-renderTodoCards();
-renderTodoPageDate();
