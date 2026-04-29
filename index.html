@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="stylesheet" href="style/main.css">
-	<script src="script/main.js"></script>
+	<script type="module" src="script/main.js" defer></script>
 	<title>OnlyPlans</title>
 </head>
 
@@ -19,7 +19,16 @@
 		<aside class="aside">
 		</aside>
 		<main>
-			<section class="calendar-section"></section>
+			<section class="calendar-section">
+				<p class="calender-year"></p>
+				<p class="calendar-month"></p>
+				<p class="calendar-days"></p>
+				<div class="calendar"></div>
+				<div>
+					<button class="decrease-month"><img class="arrows" src="/assets/MaterialSymbolsArrowCircleLeft.svg" alt=""></button>
+					<button class="increase-month"><img class="arrows" src="/assets//MaterialSymbolsArrowCircleRight.svg" alt=""></button>
+				</div>
+			</section>
 
 			<!-- Hide nav in desktop view -->
 			<nav class="mobile-navbar">
