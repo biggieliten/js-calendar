@@ -62,6 +62,11 @@
 	bottom: -50%;
 }
 
+.todo-button {
+	width: 100%;
+	padding: 10px;
+}
+
 @media(min-width: 860px) {
 	.todo-wrapper {
 		display: none;

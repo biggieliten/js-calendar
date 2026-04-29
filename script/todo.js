@@ -3,6 +3,10 @@ export function loadTodoCards() {
 	const todoSectionUpcoming = document.querySelector(".todo-section-upcoming")
 	const todoSectionCompleted = document.querySelector(".todo-section-completed")
 
+	todoSectionToday.innerHTML = "";
+	todoSectionUpcoming.innerHTML = "";
+	todoSectionCompleted.innerHTML = "";
+
 	const sortedTodos = todos.sort((t1, t2) => t1.startAt - t2.startAt)
 
 	const today = new Date().toLocaleDateString("sv", { day: "2-digit", month: "2-digit", year: "2-digit" })
@@ -110,3 +114,24 @@ let todos = [
 		isDone: false
 	},
 ];
+
+export function initializeAddTodo() {
+    const addTodoBtnEl = document.getElementById("add-todo-btn");
+
+    addTodoBtnEl.addEventListener("click", addTodo);
+}
+
+function addTodo() {
+    todos.push({
+		id: Math.round(Math.random() * 10000000000),
+		title: "Buy groceries",
+		description: "Milk, bread, fruit, pasta, and dish soap.",
+		createdAt: new Date("2026-04-27T18:20:00"),
+		startAt: new Date("2026-04-29T17:00:00"),
+		endAt: new Date("2026-04-29T17:45:00"),
+		isDone: false
+	});
+
+    loadTodoCards();
+	console.log(todos);
+}
