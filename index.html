@@ -7,7 +7,8 @@
 	<link rel="icon" href="assets/favicon.ico">
 	<link rel="stylesheet" href="style/main.css">
 	<link rel="stylesheet" href="style/header.css">
-	<script src="script/main.js"></script>
+	<link rel="stylesheet" href="style/todo.css">
+	<script type="module" src="script/main.js"></script>
 	<title>OnlyPlans</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
@@ -38,21 +39,31 @@
 
 		<!-- Hide aside in mobile view -->
 		<aside class="aside">
+
 		</aside>
 		<main>
 			<section class="calendar-section"></section>
-
-			<!-- Hide nav in desktop view -->
-			<nav class="mobile-navbar">
-				<button>
-					<span class="calendar-icon"><a href="/index.html"></a></span>
-				</button>
-				<button>
-					<span class="todos-icon"><a href="/mobile-todos.html"></a></span>
-				</button>
-			</nav>
 		</main>
 	</div>
+
+	<div class="todo-wrapper">
+		<h1>Today</h1>
+		<section class="todo-section-today"></section>
+		<h2>Upcoming</h2>
+		<section class="todo-section-upcoming"></section>
+		<h2>Completed</h2>
+		<section class="todo-section-completed"></section>
+	</div>
+
+	<!-- Hide nav in desktop view -->
+	<nav class="mobile-navbar">
+		<button>
+			<span class="calendar-icon">Calendar</span>
+		</button>
+		<button>
+			<span class="todos-icon">Todos</span>
+		</button>
+	</nav>
 </body>
 
 </html>

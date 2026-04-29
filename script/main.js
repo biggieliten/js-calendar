@@ -1,9 +1,8 @@
-import { loadComponents } from "./components.js"
-import { renderTodoCards } from "./todo.js";
+import { loadTodoCards } from "./todo.js";
 
 window.addEventListener("DOMContentLoaded", main)
 
 
 function main() {
-	renderTodoCards();
+	loadTodoCards();
 }
