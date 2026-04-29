@@ -1,15 +1,18 @@
-const welcomeDay = document.getElementById("welcome-day");
-const welcomeDate = document.getElementById("welcome-date");
-const welcomeTime = document.getElementById("welcome-time");
+export function initializeWelcomeMessage() {
+    const welcomeDay = document.getElementById("welcome-day");
+    const welcomeDate = document.getElementById("welcome-date");
+    const welcomeTime = document.getElementById("welcome-time");
 
-setDateString();
-setInterval(setDateString, 5000);
+    setDateString(welcomeDay, welcomeDate, welcomeTime);
+    setInterval(() => setDateString(welcomeDay, welcomeDate, welcomeTime), 5000);
+}
 
-function setDateString() {
+function setDateString(day, date, time) {
+
     let locale = "sv";
-    welcomeDay.textContent = getDayName(locale);
-    welcomeDate.textContent = getDate(locale);
-    welcomeTime.textContent = getTime(locale);
+    day.textContent = getDayName(locale);
+    date.textContent = getDate(locale);
+    time.textContent = getTime(locale);
 }
 
 
