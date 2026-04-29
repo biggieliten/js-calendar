@@ -90,26 +90,18 @@ function getAmountOfDaysInMonth(date) {
     for(let i = 1; i <= daysInMonth; i++) {
         const dayElement = document.createElement("div");
         dayElement.innerHTML = calendarView(i, new Date(year, month, i).toLocaleDateString("sv", {weekday: "long"}));
+
         calendar.appendChild(dayElement);
     }
 }
 
-// function getAmountOfDaysInMonth(date) {
-//   const year = date.getFullYear();
-//   const month = date.getMonth() + 1;
-
-//   const daysInMonth = new Date(year, month, 0).getDate();
-//   calendar.innerHTML = ""; // clear old content
-
-//   for (let i = 1; i <= daysInMonth; i++) {
-//     const dayEl = document.createElement("div");
-//     dayEl.textContent = new Date(year, month - 1, i)
-//       .toLocaleDateString("sv", { weekday: "long" });
-//     calendar.appendChild(dayEl);
-//   }
-// }
 
 function addCalendar(days) {
     const dayArray = Array.from({ length: days }, (_, i) => i + 1);
     // calendar.textContent = getAmountOfDaysInMonth(new Date(year, month, day));
+}
+
+for(let i = 0; i <= 7; i++) {
+    let date = new Date();
+    console.log(date.getDay()[i])
 }
