@@ -1,0 +1,46 @@
+.header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    display: flex;
+    width: 100%;
+    min-width: 375px;
+}
+
+.logo {
+    max-height: 50px;
+    margin: 0 10px;
+}
+
+.navbar {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-side {
+    display: flex;
+    gap: 5px;
+}
+
+.hide-mobile {
+    display: none;
+}
+
+.nav-item {
+    height: fit-content;
+    width: fit-content;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.72);
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .show-desktop {
+        display: flex;
+    }
+
+    .burger-div {
+        display: none;
+    }
+}
