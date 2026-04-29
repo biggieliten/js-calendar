@@ -106,32 +106,24 @@ let todos = [
 
 export function initializeAddTodo() {
     const addTodoBtnEl = document.getElementById("add-todo-btn");
+	const addTodoFormEl = document.getElementById("add-todo-form");
 
-    addTodoBtnEl.addEventListener("click", addTodo);
+    addTodoBtnEl.addEventListener("click", () => addTodo(addTodoFormEl));
 }
 
-function addTodo() {
-    todos.push({
-		id: Math.round(Math.random() * 10000000000),
-		title: "Buy groceries",
-		description: "Milk, bread, fruit, pasta, and dish soap.",
-		createdAt: new Date("2026-04-27T18:20:00"),
-		startAt: new Date("2026-04-29T17:00:00"),
-		endAt: new Date("2026-04-29T17:45:00"),
-		isDone: false
-	});
+function addTodo(form) {
+    // todos.push({
+	// 	id: Math.round(Math.random() * 10000000000),
+	// 	title: "Buy groceries",
+	// 	description: "Milk, bread, fruit, pasta, and dish soap.",
+	// 	createdAt: new Date("2026-04-27T18:20:00"),
+	// 	startAt: new Date("2026-04-29T17:00:00"),
+	// 	endAt: new Date("2026-04-29T17:45:00"),
+	// 	isDone: false
+	// });
 
-    loadTodoCards();
-	console.log(todos);
+    // loadTodoCards();
+	// console.log(todos);
+
+	form.classList.toggle("display-none");
 }
-// export function renderTodoPageDate() {
-// 	const dateElement = document.querySelector(".header-date");
-
-// 	console.log(dateElement, "date element");
-
-// 	const currentDate = new Date();
-
-// 	dateElement.textContent = `
-// 	${currentDate.toLocaleDateString("sv", { weekday: "long" })},
-// 	${currentDate.toLocaleDateString("sv", { day: "2-digit", month: "long" })}`
-// }

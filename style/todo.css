@@ -75,7 +75,27 @@
 	padding: 10px;
 }
 
-@media(max-width: 767px) {
+.add-todo-form {
+	width: fit-content;
+	min-width: 375px;
+	height: fit-content;
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid black;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.display-none {
+	display: none;
+}
+
+@media(min-width: 767px) {
 	.todo-wrapper {
 		display: none;
 		width: clamp(250px, 35vw, 40vw);
