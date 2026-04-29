@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=, initial-scale=1.0">
 	<link rel="icon" href="assets/favicon.ico">
 	<link rel="stylesheet" href="style/main.css">
-	<link rel="stylesheet" href="style/welcomeMessage.css">
 	<link rel="stylesheet" href="style/header.css">
 	<link rel="stylesheet" href="style/todo.css">
+	<link rel="stylesheet" href="style/welcomeMessage.css">
 	<script type="module" src="script/main.js"></script>
 	<title>OnlyPlans</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -40,6 +40,14 @@
 
 		<!-- Hide aside in mobile view -->
 		<aside class="aside">
+			<section class="welcome-section">
+				<h2 class="welcome-title">Välkommen</h2>
+				<div class="welcome-info">
+					<p class="welcome-info-text capitalize" id="welcome-day">veckodag</p>
+					<p class="welcome-info-text capitalize" id="welcome-date">månad datum</p>
+					<p class="welcome-info-text" id="welcome-time">tid</p>
+				</div>
+			</section>
 		</aside>
 		<main>
 			<section class="calendar-section"></section>
