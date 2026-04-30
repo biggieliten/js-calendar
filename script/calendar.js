@@ -17,21 +17,21 @@ increase.addEventListener("click", increaseMonth);
 export function getDaysInMonth() {
   calendarMonth.textContent = getMonthAsString(month);
   calendarYear.textContent = year;
-  calendarDays.textContent = getAmountOfDaysInMonth(new Date(year, month, 0));
+  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
   calendar.textContent = addCalendar();
 }
 
 export function increaseMonth() {
   month >= 11 ? (month = 11) : (month += 1);
   calendarMonth.textContent = getMonthAsString(month);
-  calendarDays.textContent = getAmountOfDaysInMonth(new Date(year, month, 0));
+  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
   addCalendar(calendarDays.textContent);
 }
 
 export function decreaseMonth() {
   month <= 0 ? (month = 0) : (month -= 1);
   calendarMonth.textContent = getMonthAsString(month);
-  calendarDays.textContent = getAmountOfDaysInMonth(new Date(year, month, 0));
+  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
   addCalendar(calendarDays.textContent);
 }
 
@@ -79,29 +79,28 @@ function getMonthAsString(month) {
   return monthName;
 }
 
-function calendarView(num1, num2) {
+function calendarView(dayNumber, weekday) {
   let calendarCard = "";
 
   return (calendarCard += `
-    <div class="card">${num1} ${num2}</div>
+    <div class="card">${dayNumber} ${weekday}</div>
     `);
 }
-function getAmountOfDaysInMonth(date) {
+
+function renderCalendar(date) {
   calendar.textContent = "";
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
   let newDate = new Date(year, month - 1, 0);
   let previousMonth = new Date(newDate.getTime());
 
-  console.log(newDate);
-  console.log(previousMonth.toLocaleDateString("sv", { weekday: "long" }));
-
   for (let i = 1; i <= daysInMonth; i++) {
+    console.log(new Date(year, month, i).getDay());
     const dayElement = document.createElement("div");
-    if (i <= parseInt(new Date(year, month, 0).getDay())) {
+    if (i <= parseInt(new Date(year, month, i).getDay())) {
       previousMonth.setDate(month - 1);
       dayElement.innerHTML = calendarView(
-        new Date(year, previousMonth.getMonth, i).getDay(),
+        new Date(year, previousMonth.getMonth(), i).getDay(),
         new Date(year, previousMonth.getMonth(), i).toLocaleDateString("sv", {
           weekday: "long",
         }),
@@ -112,7 +111,7 @@ function getAmountOfDaysInMonth(date) {
         new Date(
           year,
           month,
-          i - parseInt(new Date(year, month, 0).getDay()),
+          i - parseInt(new Date(year, month, 0).getDay()) + 3,
         ).toLocaleDateString("sv", { weekday: "long" }),
       );
     }
@@ -123,5 +122,5 @@ function getAmountOfDaysInMonth(date) {
 
 function addCalendar(days) {
   const dayArray = Array.from({ length: days }, (_, i) => i + 1);
-  // calendar.textContent = getAmountOfDaysInMonth(new Date(year, month, day));
+  // calendar.textContent = renderCalendar(new Date(year, month, day));
 }
