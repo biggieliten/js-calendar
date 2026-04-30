@@ -3,6 +3,10 @@ export function loadTodoCards() {
 	const todoSectionUpcoming = document.querySelector(".todo-section-upcoming")
 	const todoSectionCompleted = document.querySelector(".todo-section-completed")
 
+	todoSectionToday.innerHTML = ""
+	todoSectionUpcoming.innerHTML = ""
+	todoSectionCompleted.innerHTML = ""
+
 	const sortedTodos = todos.sort((t1, t2) => t1.startAt - t2.startAt)
 
 	const today = new Date().toLocaleDateString("sv", { day: "2-digit", month: "2-digit", year: "2-digit" })
@@ -33,6 +37,15 @@ function createTodoCard(todo, showDate) {
 
 	description.classList = "todo-description"
 	checkBox.type = "checkbox"
+
+	if (todo.isDone) {
+		checkBox.checked = true;
+		title.style.textDecoration = "line-through"
+		description.style.textDecoration = "line-through"
+	}
+
+	checkBox.addEventListener("click", () => setTodoComplete(todo))
+
 	checkBox.classList = "todo-check"
 	todoCard.classList = "todo-card"
 	timeBox.classList = "todo-time-box"
@@ -59,6 +72,22 @@ function createTodoCard(todo, showDate) {
 	todoCard.append(timeBox, checkBox);
 
 	return todoCard
+}
+
+function setTodoComplete(todo) {
+	const foundTodo = todos.find(t => t === todo);
+
+	if (!foundTodo) return;
+
+	if (!foundTodo.isDone) {
+		foundTodo.isDone = true;
+		loadTodoCards();
+		return;
+	}
+
+	foundTodo.isDone = false;
+
+	loadTodoCards();
 }
 
 let todos = [

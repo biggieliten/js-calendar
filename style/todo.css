@@ -45,6 +45,7 @@
 
 .todo-card p {
 	margin: 0.5rem 0;
+	;
 }
 
 .todo-card .todo-description {
@@ -62,11 +63,9 @@
 .todo-card .todo-check {
 	position: absolute;
 	right: 1rem;
+	top: 50%;
 	width: 1.5rem;
-
-	/* To place checkbox in middle of y-axis with position absolute*/
-	top: -50%;
-	bottom: -50%;
+	height: 1.5rem;
 }
 
 @media(max-width: 767px) {
