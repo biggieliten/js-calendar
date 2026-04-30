@@ -8,5 +8,5 @@ window.addEventListener("DOMContentLoaded", main)
 function main() {
 	loadTodoCards();
 	initializeWelcomeMessage();
-	switchView()
+	switchView();
 }
