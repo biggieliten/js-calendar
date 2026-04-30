@@ -6,10 +6,16 @@ export function switchView() {
 	const todoWrapper = document.querySelector(".todo-wrapper");
 	const calendarSection = document.querySelector(".calendar-section");
 
+	// Holds previous width before resize
+	let previousWidth = window.innerWidth;
 
 	window.addEventListener("resize", () => {
+
+		// Saves new width after resize
+		const resizedWidth = window.innerWidth;
+
 		// Resets to a default state for mobile view on resize
-		if (window.innerWidth < 768) {
+		if (previousWidth >= 768 && resizedWidth < 768) {
 			calendarSection.style.display = "block";
 			todoWrapper.style.display = "none";
 			todoIcon.classList.remove("active");
@@ -17,12 +23,14 @@ export function switchView() {
 		}
 
 		// Resets to desktop default state on resize
-		if (window.innerWidth > 768) {
+		if (previousWidth < 768 && resizedWidth >= 768) {
 			calendarSection.style.display = "block";
 			todoWrapper.style.display = "block";
 			todoIcon.classList.remove("active");
 			calendarIcon.classList.remove("active");
 		}
+
+		previousWidth = resizedWidth;
 	})
 
 	calendarBtn.addEventListener("click", () => {
