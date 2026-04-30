@@ -40,6 +40,5 @@ export function switchView() {
 		calendarIcon.classList.remove("active");
 		todoIcon.classList.add("active");
 	});
-
 }
 
