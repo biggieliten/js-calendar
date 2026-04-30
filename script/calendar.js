@@ -1,14 +1,12 @@
 let date = new Date();
+
 let month = date.getMonth();
 let year = date.getFullYear();
 let day = date.getDay();
 let dayDate = date.getDate();
 
-console.log({ day });
-console.log({ dayDate });
-
 let calendarMonth = document.querySelector(".calendar-month");
-let calendarYear = document.querySelector(".calender-year");
+let calendarYear = document.querySelector(".calendar-year");
 let calendarDays = document.querySelector(".calendar-days");
 let calendar = document.querySelector(".calendar");
 
@@ -21,21 +19,21 @@ increase.addEventListener("click", increaseMonth);
 export function getDaysInMonth() {
   calendarMonth.textContent = getMonthAsString(month);
   calendarYear.textContent = year;
-  calendarDays.textContent = getAmountOfDaysInMonth(new Date(year, month, 0));
+  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
   calendar.textContent = addCalendar();
 }
 
 export function increaseMonth() {
   month >= 11 ? (month = 11) : (month += 1);
   calendarMonth.textContent = getMonthAsString(month);
-  calendarDays.textContent = getAmountOfDaysInMonth(new Date(year, month, 0));
+  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
   addCalendar(calendarDays.textContent);
 }
 
 export function decreaseMonth() {
   month <= 0 ? (month = 0) : (month -= 1);
   calendarMonth.textContent = getMonthAsString(month);
-  calendarDays.textContent = getAmountOfDaysInMonth(new Date(year, month, 0));
+  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
   addCalendar(calendarDays.textContent);
 }
 
@@ -54,6 +52,7 @@ function getMonthAsString(month) {
     "November",
     "December",
   ];
+
   return months[month];
 }
 
@@ -64,9 +63,7 @@ function calendarView(num1, num2) {
     <div class="card">${num1} ${num2}</div>
     `);
 }
-function getAmountOfDaysInMonth(date) {
-  // let year = date.getFullYear();
-  // let month = date.getMonth() + 1;
+function renderCalendar(date) {
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   calendar.textContent = "";
 
@@ -83,7 +80,7 @@ function getAmountOfDaysInMonth(date) {
 
 function addCalendar(days) {
   const dayArray = Array.from({ length: days }, (_, i) => i + 1);
-  // calendar.textContent = getAmountOfDaysInMonth(new Date(year, month, day));
+  // calendar.textContent = renderCalendar(new Date(year, month, day));
 }
 
 for (let i = 0; i <= 7; i++) {
