@@ -47,6 +47,8 @@
 
 .calendar-month-year {
     text-transform: capitalize;
+    width: 150px;
+    text-align: center;
 }
 
 @media (min-width: 767px) {

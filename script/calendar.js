@@ -2,9 +2,14 @@ const currentDate = new Date();
 let monthOffset = 0;
 const calendarEl = document.getElementById("calendar-container");
 const monthYearInfoEl = document.getElementById("calendar-month-year");
+const decreaseMonthButton = document.getElementById("decrease-month");
+const increaseMonthButton = document.getElementById("increase-month");
 
 export function InitializeCalendar() {
   renderCalendar();
+
+  decreaseMonthButton.addEventListener("click", () => changeMonth(-1));
+  increaseMonthButton.addEventListener("click", () => changeMonth(1));
 }
 
 function renderCalendar() {
@@ -33,11 +38,17 @@ function setMonthYearInfo() {
   monthYearInfoEl.textContent = null;
   let date = new Date(
     currentDate.getFullYear(),
-    currentDate.getMonth() - monthOffset,
+    currentDate.getMonth() + monthOffset,
   );
 
   monthYearInfoEl.textContent = date.toLocaleDateString("sv", {
     month: "long",
     year: "numeric",
   });
+}
+
+function changeMonth(change) {
+  monthOffset += change;
+
+  renderCalendar();
 }
