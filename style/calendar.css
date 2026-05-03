@@ -1,0 +1,49 @@
+.calendar-div {
+    display: grid;
+    flex-direction: column;
+}
+
+.calendar-days {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 10px 5px 0 5px;
+    width: 100%;
+}
+
+.calendar-day {
+    border: 1px solid black;
+    width: calc((100% / 7) - calc(30px / 7));
+    padding: 2px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.calendar-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 5px;
+}
+
+.calendar-card {
+    flex: 0 0 calc((100% / 7) - calc(30px / 7));
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+    aspect-ratio: 1;
+    width: calc((100% / 7) - calc(30px / 7));
+    font-size: 12px;
+}
+
+@media (min-width: 767px) {
+    .calendar-day {
+        font-size: 20px;
+    }
+    
+    .calendar-card {
+        font-size: 16px;
+    }
+}
