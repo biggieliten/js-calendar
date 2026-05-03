@@ -12,7 +12,6 @@
 }
 
 .calendar-day {
-    border: 1px solid black;
     width: calc((100% / 7) - calc(30px / 7));
     padding: 2px;
     text-align: center;
@@ -36,6 +35,18 @@
     aspect-ratio: 1;
     width: calc((100% / 7) - calc(30px / 7));
     font-size: 12px;
+}
+
+.calendar-month-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.calendar-month-year {
+    text-transform: capitalize;
 }
 
 @media (min-width: 767px) {
