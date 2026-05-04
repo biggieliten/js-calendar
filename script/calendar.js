@@ -103,7 +103,7 @@ function createCalendarCard(date) {
 
 	let todoCount = countTodosSpecificDate(date);
 
-	if (todoCount > 0 && todoCount <= 13) {
+	if (todoCount > 0) {
 		let todoCountBox = document.createElement("div");
 		todoCountBox.classList.add("calendar-dot-box");
 
