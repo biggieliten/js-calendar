@@ -20,13 +20,6 @@ function UpdateDayNames(width) {
       _locale,
       getOptionsFromWidth(width),
     );
-
-    console.log(
-      new Date(2026, 4, 4 + i).toLocaleDateString(
-        _locale,
-        getOptionsFromWidth(width),
-      ),
-    );
   }
 }
 
