@@ -26,6 +26,10 @@ body {
 	min-height: 0;
 }
 
+main {
+	flex-grow: 1;
+}
+
 .aside {
 	display: flex;
 	flex-direction: column;
