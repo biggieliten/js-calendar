@@ -84,7 +84,6 @@ function renderNextMonth() {
 }
 
 function createCalendarCard(date) {
-  console.log(date.toISOString().split("T")[0]);
   let newCard = document.createElement("div");
   newCard.classList.add("calendar-card");
   let cardInfo = document.createElement("p");
@@ -164,9 +163,6 @@ function getPublicHoliday(date) {
 
   for (let index = 0; index < holidays.length; index++) {
     if (holidays[index].date === dateStr) {
-      console.log({ dateStr });
-      console.log(holidays[index].date);
-      console.log(holidays[index].date, holidays[index].date === dateStr);
       match = toCapitalCase(holidays[index].name.sv);
     }
   }
