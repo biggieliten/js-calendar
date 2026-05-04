@@ -1,12 +1,13 @@
 import { switchView } from "./navbar.js";
 import { loadTodoCards } from "./todo.js";
 import { initializeWelcomeMessage } from "./welcomeMessage.js";
+import { InitializeCalendar } from "./calendar.js";
 
-window.addEventListener("DOMContentLoaded", main)
-
+window.addEventListener("DOMContentLoaded", main);
 
 function main() {
-	loadTodoCards();
-	initializeWelcomeMessage();
-	switchView();
+  InitializeCalendar();
+  loadTodoCards();
+  initializeWelcomeMessage();
+  switchView();
 }

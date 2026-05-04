@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="style/welcomeMessage.css">
 	<link rel="stylesheet" href="style/navbar.css">
 	<script type="module" src="script/main.js"></script>
+	<link rel="stylesheet" href="style/calendar.css">
+	<script type="module" src="script/main.js" defer></script>
 	<title>OnlyPlans</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
@@ -64,6 +66,37 @@
 
 		<main>
 			<section class="calendar-section"></section>
+			<section class="calendar-section">
+				<div class="calendar-month-part">
+					<button id="decrease-month"><img class="arrows" src="/assets/MaterialSymbolsArrowCircleLeft.svg"
+							alt="left arrow icon"></button>
+					<h3 class="calendar-month-year" id="calendar-month-year">Month - year</h3>
+					<button id="increase-month"><img class="arrows" src="/assets/MaterialSymbolsArrowCircleRight.svg"
+							alt="right arrow icon"></button>
+				</div>
+				<div class="calendar-div">
+					<section class="calendar-days">
+						<p class="calendar-day">Måndag</p>
+						<p class="calendar-day">Tisdag</p>
+						<p class="calendar-day">Onsdag</p>
+						<p class="calendar-day">Torsdag</p>
+						<p class="calendar-day">Fredag</p>
+						<p class="calendar-day">Lördag</p>
+						<p class="calendar-day">Söndag</p>
+					</section>
+					<section id="calendar-container" class="calendar-container"> </section>
+				</div>
+			</section>
+
+			<!-- Hide nav in desktop view -->
+			<nav class="mobile-navbar">
+				<button>
+					<span class="calendar-icon"><a href="/index.html"></a></span>
+				</button>
+				<button>
+					<span class="todos-icon"><a href="/mobile-todos.html"></a></span>
+				</button>
+			</nav>
 		</main>
 	</div>
 
