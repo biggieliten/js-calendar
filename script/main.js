@@ -5,7 +5,7 @@ import { InitializeCalendar } from "./calendar.js";
 
 window.addEventListener("DOMContentLoaded", main);
 
-function main() {
+async function main() {
   InitializeCalendar();
   loadTodoCards();
   initializeWelcomeMessage();
