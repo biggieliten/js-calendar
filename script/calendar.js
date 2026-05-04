@@ -6,19 +6,18 @@ const decreaseMonthButton = document.getElementById("decrease-month");
 const increaseMonthButton = document.getElementById("increase-month");
 const calendarDesiredCardCount = 42;
 
-export function InitializeCalendar() {
+export async function InitializeCalendar() {
   renderCalendar();
+  await initHolidays();
 
   decreaseMonthButton.addEventListener("click", () => changeMonth(-1));
   increaseMonthButton.addEventListener("click", () => changeMonth(1));
 }
 
-async function renderCalendar() {
+function renderCalendar() {
   setMonthYearInfo();
 
   calendarEl.innerHTML = null;
-
-  await initHolidays();
 
   renderPreviousMonth();
   renderCurrentMonth();

@@ -45,6 +45,14 @@
     width: calc((100% / 7) - calc(30px / 7));
     max-height: 100px;
     font-size: 12px;
+    position: relative;
+}
+
+.calendar-holiday-name {
+    color: #ff1e00cb;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 5px;
 }
 
 .calendar-card:hover {
@@ -65,11 +73,6 @@
     text-align: center;
 }
 
-.calendar-holiday-name {
-    color: #ff1e00cb;
-    font-size: 0.8rem;
-}
-
 @media (min-width: 767px) {
     .calendar-day {
         font-size: 20px;
@@ -79,8 +82,8 @@
         font-size: 16px;
     }
 
-.calendar-holiday-name {
-    color: #ff1e00cb;
-    font-size: 0.8rem;
-}
+    .calendar-holiday-name {
+        color: #ff1e00cb;
+        font-size: 0.8rem;
+    }
 }
