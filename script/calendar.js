@@ -7,8 +7,8 @@ const increaseMonthButton = document.getElementById("increase-month");
 const calendarDesiredCardCount = 42;
 
 export async function InitializeCalendar() {
-  renderCalendar();
   await initHolidays();
+  renderCalendar();
 
   decreaseMonthButton.addEventListener("click", () => changeMonth(-1));
   increaseMonthButton.addEventListener("click", () => changeMonth(1));
