@@ -22,11 +22,11 @@ function renderTodoCards() {
 	sortedTodos.forEach(t => {
 		const todoDate = t.startAt.toLocaleDateString("sv", { day: "2-digit", month: "2-digit", year: "2-digit" })
 
-		if (today == todoDate) {
-			todoSectionToday.append(createTodoCard(t, false))
-		}
-		else if (t.isDone) {
+		if (t.isDone) {
 			todoSectionCompleted.append(createTodoCard(t, true))
+		}
+		else if (today == todoDate) {
+			todoSectionToday.append(createTodoCard(t, false))
 		}
 		else {
 			todoSectionUpcoming.append(createTodoCard(t, true))
@@ -42,6 +42,9 @@ function createTodoCard(todo, showDate) {
 	const endAt = document.createElement("p")
 	const timeBox = document.createElement("div")
 	const checkBox = document.createElement("input")
+	const deleteBtn = document.createElement("btn")
+	const deleteIcon = document.createElement("span")
+
 
 	description.classList = "todo-description"
 	checkBox.type = "checkbox"
@@ -52,11 +55,17 @@ function createTodoCard(todo, showDate) {
 		description.style.textDecoration = "line-through"
 	}
 
-	checkBox.addEventListener("click", () => setTodoComplete(todo))
+	checkBox.addEventListener("click", () => setTodoDone(todo))
+	deleteBtn.addEventListener("click", () => deleteTodo(todo))
 
 	checkBox.classList = "todo-check"
 	todoCard.classList = "todo-card"
 	timeBox.classList = "todo-time-box"
+
+	// classList and textContent needed for Material Icons
+	deleteBtn.classList = "todo-delete-btn"
+	deleteIcon.classList = "material-symbols-outlined todo-delete-icon"
+	deleteIcon.textContent = "delete"
 
 	title.textContent = todo.title;
 	description.textContent = todo.description
@@ -64,7 +73,7 @@ function createTodoCard(todo, showDate) {
 	endAt.textContent = todo.endAt.toLocaleTimeString("sv", { hour: "2-digit", minute: "2-digit" });
 
 	timeBox.append(startAt, "-", endAt)
-
+	deleteBtn.append(deleteIcon);
 	todoCard.append(title, description);
 
 	if (showDate) {
@@ -76,13 +85,12 @@ function createTodoCard(todo, showDate) {
 		});
 		todoCard.append(date);
 	}
-
-	todoCard.append(timeBox, checkBox);
+	todoCard.append(timeBox, checkBox, deleteBtn);
 
 	return todoCard
 }
 
-function setTodoComplete(todo) {
+function setTodoDone(todo) {
 	const foundTodo = todos.find(t => t === todo);
 
 	if (!foundTodo) return;
@@ -95,5 +103,14 @@ function setTodoComplete(todo) {
 
 	foundTodo.isDone = false;
 
+	renderTodoCards();
+}
+
+function deleteTodo(todo) {
+	let index = todos.indexOf(todo);
+	if (index < 0) return;
+
+	todos.splice(index, 1);
+	console.log(todos);
 	renderTodoCards();
 }
