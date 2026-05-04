@@ -23,7 +23,8 @@
     width: calc((100% / 7) - calc(30px / 7));
     padding: 2px;
     text-align: center;
-    font-size: 12px;
+    font-size: 20px;
+    text-transform: capitalize;
 }
 
 .calendar-container {
@@ -65,11 +66,7 @@
     text-align: center;
 }
 
-@media (min-width: 767px) {
-    .calendar-day {
-        font-size: 20px;
-    }
-    
+@media (min-width: 767px) {    
     .calendar-card {
         font-size: 16px;
     }
