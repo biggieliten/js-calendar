@@ -1,89 +1,134 @@
-let date = new Date();
+const currentDate = new Date();
+let monthOffset = 0;
+const calendarEl = document.getElementById("calendar-container");
+const monthYearInfoEl = document.getElementById("calendar-month-year");
+const decreaseMonthButton = document.getElementById("decrease-month");
+const increaseMonthButton = document.getElementById("increase-month");
+const calendarDesiredCardCount = 42;
 
-let month = date.getMonth();
-let year = date.getFullYear();
-let day = date.getDay();
-let dayDate = date.getDate();
+export function InitializeCalendar() {
+  renderCalendar();
 
-let calendarMonth = document.querySelector(".calendar-month");
-let calendarYear = document.querySelector(".calendar-year");
-let calendarDays = document.querySelector(".calendar-days");
-let calendar = document.querySelector(".calendar");
-
-let decrease = document.querySelector(".decrease-month");
-decrease.addEventListener("click", decreaseMonth);
-
-let increase = document.querySelector(".increase-month");
-increase.addEventListener("click", increaseMonth);
-
-export function getDaysInMonth() {
-  calendarMonth.textContent = getMonthAsString(month);
-  calendarYear.textContent = year;
-  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
-  calendar.textContent = addCalendar();
+  decreaseMonthButton.addEventListener("click", () => changeMonth(-1));
+  increaseMonthButton.addEventListener("click", () => changeMonth(1));
 }
 
-export function increaseMonth() {
-  month >= 11 ? (month = 11) : (month += 1);
-  calendarMonth.textContent = getMonthAsString(month);
-  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
-  addCalendar(calendarDays.textContent);
+function renderCalendar() {
+  setMonthYearInfo();
+
+  calendarEl.innerHTML = null;
+  renderPreviousMonth();
+  renderCurrentMonth();
+  renderNextMonth();
 }
 
-export function decreaseMonth() {
-  month <= 0 ? (month = 0) : (month -= 1);
-  calendarMonth.textContent = getMonthAsString(month);
-  calendarDays.textContent = renderCalendar(new Date(year, month, 0));
-  addCalendar(calendarDays.textContent);
-}
+function renderPreviousMonth() {
+  let firstdayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + monthOffset,
+    1,
+  );
 
-function getMonthAsString(month) {
-  const months = [
-    "Januari",
-    "Februari",
-    "Mars",
-    "April",
-    "Maj",
-    "Juni",
-    "Juli",
-    "Augusti",
-    "September",
-    "Oktober",
-    "November",
-    "December",
-  ];
+  let daysNeeded = getDayCountForPreviousMonth(firstdayOfMonth.getDay());
 
-  return months[month];
-}
+  const previousMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + monthOffset,
+    0 - daysNeeded,
+  );
 
-function calendarView(num1, num2) {
-  let calendarCard = "";
-
-  return (calendarCard += `
-    <div class="card">${num1} ${num2}</div>
-    `);
-}
-function renderCalendar(date) {
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  calendar.textContent = "";
-
-  for (let i = 1; i <= daysInMonth; i++) {
-    const dayElement = document.createElement("div");
-    dayElement.innerHTML = calendarView(
-      i,
-      new Date(year, month, i).toLocaleDateString("sv", { weekday: "long" }),
+  for (let i = daysNeeded; i > 0; i--) {
+    let dayDate = new Date(
+      previousMonth.getFullYear(),
+      previousMonth.getMonth(),
+      previousMonth.getDay() - i,
     );
 
-    calendar.appendChild(dayElement);
+    let card = createCalendarCard(dayDate);
+    calendarEl.append(card);
   }
 }
 
-function addCalendar(days) {
-  const dayArray = Array.from({ length: days }, (_, i) => i + 1);
-  // calendar.textContent = renderCalendar(new Date(year, month, day));
+function renderCurrentMonth() {
+  let monthStart = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + monthOffset,
+    1,
+  );
+
+  let currentMonth = monthStart.getMonth();
+
+  while (currentMonth === monthStart.getMonth()) {
+    calendarEl.append(createCalendarCard(monthStart));
+
+    monthStart.setDate(monthStart.getDate() + 1);
+  }
 }
 
-for (let i = 0; i <= 7; i++) {
-  let date = new Date();
-  console.log(date.getDay()[i]);
+function renderNextMonth() {
+  let nextMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + monthOffset + 1,
+    1,
+  );
+
+  let currentCardCount = calendarEl.childElementCount;
+
+  for (let i = currentCardCount; i < calendarDesiredCardCount; i++) {
+    calendarEl.append(createCalendarCard(nextMonth));
+    nextMonth.setDate(nextMonth.getDate() + 1);
+  }
+}
+
+function createCalendarCard(date) {
+  let newCard = document.createElement("div");
+  newCard.classList.add("calendar-card");
+
+  let cardInfo = document.createElement("p");
+  cardInfo.classList.add("calendar-card-info");
+  cardInfo.textContent = date.getDate();
+
+  newCard.append(cardInfo);
+
+  return newCard;
+}
+
+function setMonthYearInfo() {
+  monthYearInfoEl.textContent = null;
+  let date = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + monthOffset,
+  );
+
+  monthYearInfoEl.textContent = date.toLocaleDateString("sv", {
+    month: "long",
+    year: "numeric",
+  });
+}
+
+function changeMonth(change) {
+  monthOffset += change;
+
+  renderCalendar();
+}
+
+function getDayCountForPreviousMonth(dayOfWeek) {
+  switch (dayOfWeek) {
+    case 1:
+      return 0;
+    case 2:
+      return 1;
+    case 3:
+      return 2;
+    case 4:
+      return 3;
+    case 5:
+      return 4;
+    case 6:
+      return 5;
+    case 0:
+      return 6;
+    default:
+      return -1;
+  }
 }
