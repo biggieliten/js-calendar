@@ -12,6 +12,12 @@
 	--neutral-color: #64748B;
 
 	--primary-font: "Manrope", sans-serif;
+	--text-color-primary: rgba(0, 0, 0, 0.72);
+	--text-color-primary: rgba(0, 0, 0, 0.56);
+	--text-color-faded: rgba(0, 0, 0, 0.5);
+
+	--border-color-primary: rgb(0, 0, 0);
+	--border-color-faded: rgba(0, 0, 0, 0.1);
 }
 
 body {
