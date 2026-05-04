@@ -1,79 +1,103 @@
 .calendar-section {
-    max-width: 1000px;
-    min-width: 375px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+	max-width: 1000px;
+	min-width: 375px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
 }
 
 .calendar-div {
-    display: grid;
-    flex-direction: column;
+	display: grid;
+	flex-direction: column;
 }
 
 .calendar-days {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    padding: 10px 5px 0 5px;
-    width: 100%;
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	padding: 10px 5px 0 5px;
+	width: 100%;
 }
 
 .calendar-day {
-    width: calc((100% / 7) - calc(30px / 7));
-    padding: 2px;
-    text-align: center;
-    font-size: 20px;
-    text-transform: capitalize;
+	width: calc((100% / 7) - calc(30px / 7));
+	padding: 2px;
+	text-align: center;
+	font-size: 20px;
+	text-transform: capitalize;
 }
 
 .calendar-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    padding: 10px 5px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 5px;
+	padding: 10px 5px;
 }
 
 .calendar-card {
-    flex: 0 0 calc((100% / 7) - calc(30px / 7));
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 5px;
-    aspect-ratio: 1;
-    width: calc((100% / 7) - calc(30px / 7));
-    max-height: 100px;
-    font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	flex: 0 0 calc((100% / 7) - calc(30px / 7));
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	padding: 5px;
+	aspect-ratio: 1;
+	width: calc((100% / 7) - calc(30px / 7));
+	max-height: 100px;
+	font-size: 12px;
+}
+
+.calendar-dot-box {
+	display: flex;
+	gap: 2px;
+}
+
+.calendar-dot-box p {
+	font-size: clamp(10px, 12px, 1rem);
+	color: var(--primary-color);
+	margin-left: 0.2rem;
+}
+
+.calendar-dot {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: var(--primary-color);
+
+	align-self: center;
 }
 
 .shaded-card {
-    border-color: rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.5);
-    background-color: rgb(247, 247, 247);
+	border-color: rgba(0, 0, 0, 0.1);
+	color: rgba(0, 0, 0, 0.5);
+	background-color: rgb(247, 247, 247);
 }
 
 .calendar-card:hover {
-    background: rgb(240, 240, 240);
+	background: rgb(240, 240, 240);
 }
 
 .calendar-month-part {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
 }
 
 .calendar-month-year {
-    text-transform: capitalize;
-    width: 150px;
-    text-align: center;
+	text-transform: capitalize;
+	width: 150px;
+	text-align: center;
 }
 
-@media (min-width: 767px) {    
-    .calendar-card {
-        font-size: 16px;
-    }
+@media (min-width: 767px) {
+	.calendar-card {
+		font-size: 16px;
+	}
 }
