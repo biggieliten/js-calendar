@@ -47,6 +47,12 @@
     font-size: 12px;
 }
 
+.shaded-card {
+    border-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(247, 247, 247);
+}
+
 .calendar-card:hover {
     background: rgb(240, 240, 240);
 }

@@ -45,6 +45,7 @@ function renderPreviousMonth() {
     );
 
     let card = createCalendarCard(dayDate);
+    card.classList.add("shaded-card");
     calendarEl.append(card);
   }
 }
@@ -75,7 +76,9 @@ function renderNextMonth() {
   let currentCardCount = calendarEl.childElementCount;
 
   for (let i = currentCardCount; i < calendarDesiredCardCount; i++) {
-    calendarEl.append(createCalendarCard(nextMonth));
+    let card = createCalendarCard(nextMonth);
+    card.classList.add("shaded-card");
+    calendarEl.append(card);
     nextMonth.setDate(nextMonth.getDate() + 1);
   }
 }
