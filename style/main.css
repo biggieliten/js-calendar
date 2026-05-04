@@ -13,10 +13,10 @@
 
 	--primary-font: "Manrope", sans-serif;
 	--text-color-primary: rgba(0, 0, 0, 0.72);
-	--text-color-primary: rgba(0, 0, 0, 0.56);
-	--text-color-faded: rgba(0, 0, 0, 0.5);
+	--text-color-secondary: rgba(0, 0, 0, 0.56);
+	--text-color-faded: rgba(0, 0, 0, 0.4);
 
-	--border-color-primary: rgb(0, 0, 0);
+	--border-color-primary: rgba(0, 0, 0, 0.3);
 	--border-color-faded: rgba(0, 0, 0, 0.1);
 }
 
