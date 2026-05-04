@@ -48,21 +48,3 @@ button {
 	background: none;
 	border: none;
 }
-
-
-.arrows {
-	height: 2rem;
-	width: 2rem;
-}
-
-.calendar {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 1rem;
-	margin: 0 1rem;
-}
-.card {
-	height: 200px;
-	width: inherit;
-	border: 1px solid #000;
-}
