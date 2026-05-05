@@ -79,7 +79,8 @@
 
 .calendar-holiday-name {
 	color: var(--danger-color);
-	text-overflow: clip;
+	hyphens: auto;
+	word-break: break-word;
 }
 
 .shaded-card {
