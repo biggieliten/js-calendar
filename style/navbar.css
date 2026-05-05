@@ -1,5 +1,5 @@
 .mobile-navbar {
-	position: absolute;
+	position: sticky;
 	bottom: 0;
 	display: flex;
 	width: 100%;
