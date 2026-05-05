@@ -1,38 +1,41 @@
 .calendar-section {
-    max-width: 1000px;
-    min-width: 375px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+	max-width: 1000px;
+	min-width: 375px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+    color: var(--text-color-primary);
+    font-family: var(--primary-font);
 }
 
 .calendar-div {
-    display: grid;
-    flex-direction: column;
+	display: grid;
+	flex-direction: column;
 }
 
 .calendar-days {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    padding: 10px 5px 0 5px;
-    width: 100%;
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	padding: 10px 5px 0 5px;
+	width: 100%;
 }
 
 .calendar-day {
-    width: calc((100% / 7) - calc(30px / 7));
-    padding: 2px;
-    text-align: center;
-    font-size: 12px;
+	width: calc((100% / 7) - calc(30px / 7));
+	padding: 2px;
+	text-align: center;
+	font-size: 20px;
+	text-transform: capitalize;
 }
 
 .calendar-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    padding: 10px 5px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 5px;
+	padding: 10px 5px;
 }
 
 .calendar-card {
@@ -56,21 +59,21 @@
 }
 
 .calendar-card:hover {
-    background: rgb(240, 240, 240);
+	background: var(--secondary-color);
 }
 
 .calendar-month-part {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
 }
 
 .calendar-month-year {
-    text-transform: capitalize;
-    width: 150px;
-    text-align: center;
+	text-transform: capitalize;
+	width: 150px;
+	text-align: center;
 }
 
 @media (min-width: 767px) {

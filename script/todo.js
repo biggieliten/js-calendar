@@ -1,4 +1,12 @@
-export function loadTodoCards() {
+let todos;
+
+export function initializeTodoCards(incomingTodos) {
+	todos = incomingTodos;
+
+	renderTodoCards()
+};
+
+function renderTodoCards() {
 	const todoSectionToday = document.querySelector(".todo-section-today")
 	const todoSectionUpcoming = document.querySelector(".todo-section-upcoming")
 	const todoSectionCompleted = document.querySelector(".todo-section-completed")
@@ -14,17 +22,17 @@ export function loadTodoCards() {
 	sortedTodos.forEach(t => {
 		const todoDate = t.startAt.toLocaleDateString("sv", { day: "2-digit", month: "2-digit", year: "2-digit" })
 
-		if (today == todoDate) {
-			todoSectionToday.append(createTodoCard(t, false))
-		}
-		else if (t.isDone) {
+		if (t.isDone) {
 			todoSectionCompleted.append(createTodoCard(t, true))
+		}
+		else if (today == todoDate) {
+			todoSectionToday.append(createTodoCard(t, false))
 		}
 		else {
 			todoSectionUpcoming.append(createTodoCard(t, true))
 		}
 	});
-}
+};
 
 function createTodoCard(todo, showDate) {
 	const todoCard = document.createElement("article")
@@ -34,6 +42,9 @@ function createTodoCard(todo, showDate) {
 	const endAt = document.createElement("p")
 	const timeBox = document.createElement("div")
 	const checkBox = document.createElement("input")
+	const deleteBtn = document.createElement("btn")
+	const deleteIcon = document.createElement("span")
+
 
 	description.classList = "todo-description"
 	checkBox.type = "checkbox"
@@ -44,11 +55,17 @@ function createTodoCard(todo, showDate) {
 		description.style.textDecoration = "line-through"
 	}
 
-	checkBox.addEventListener("click", () => setTodoComplete(todo))
+	checkBox.addEventListener("click", () => setTodoDone(todo))
+	deleteBtn.addEventListener("click", () => deleteTodo(todo))
 
 	checkBox.classList = "todo-check"
 	todoCard.classList = "todo-card"
 	timeBox.classList = "todo-time-box"
+
+	// classList and textContent needed for Material Icons
+	deleteBtn.classList = "todo-delete-btn"
+	deleteIcon.classList = "material-symbols-outlined todo-delete-icon"
+	deleteIcon.textContent = "delete"
 
 	title.textContent = todo.title;
 	description.textContent = todo.description
@@ -56,7 +73,7 @@ function createTodoCard(todo, showDate) {
 	endAt.textContent = todo.endAt.toLocaleTimeString("sv", { hour: "2-digit", minute: "2-digit" });
 
 	timeBox.append(startAt, "-", endAt)
-
+	deleteBtn.append(deleteIcon);
 	todoCard.append(title, description);
 
 	if (showDate) {
@@ -68,75 +85,32 @@ function createTodoCard(todo, showDate) {
 		});
 		todoCard.append(date);
 	}
-
-	todoCard.append(timeBox, checkBox);
+	todoCard.append(timeBox, checkBox, deleteBtn);
 
 	return todoCard
 }
 
-function setTodoComplete(todo) {
+function setTodoDone(todo) {
 	const foundTodo = todos.find(t => t === todo);
 
 	if (!foundTodo) return;
 
 	if (!foundTodo.isDone) {
 		foundTodo.isDone = true;
-		loadTodoCards();
+		renderTodoCards();
 		return;
 	}
 
 	foundTodo.isDone = false;
 
-	loadTodoCards();
+	renderTodoCards();
 }
 
-let todos = [
-	{
-		id: 1,
-		title: "Reply to client email",
-		description: "Send the revised budget and confirm tomorrow's call.",
-		createdAt: new Date("2026-04-28T08:15:00"),
-		startAt: new Date("2026-04-28T09:30:00"),
-		endAt: new Date("2026-04-28T10:00:00"),
-		isDone: true
-	},
-	{
-		id: 2,
-		title: "Buy groceries",
-		description: "Milk, bread, fruit, pasta, and dish soap.",
-		createdAt: new Date("2026-04-27T18:20:00"),
-		startAt: new Date("2026-04-29T17:00:00"),
-		endAt: new Date("2026-04-29T17:45:00"),
-		isDone: false
-	},
-	{
-		id: 3,
-		title: "Prepare presentation",
-		description: "Finish the slides for Friday's project update.",
-		createdAt: new Date("2026-04-26T13:10:00"),
-		startAt: new Date("2026-04-29T14:00:00"),
-		endAt: new Date("2026-04-29T16:00:00"),
-		isDone: false
-	},
-	{
-		id: 4,
-		title: "Call the dentist",
-		description: "Book a cleaning appointment for next month.",
-		createdAt: new Date("2026-04-25T10:05:00"),
-		startAt: new Date("2026-05-03T11:30:00"),
-		endAt: new Date("2026-05-03T11:45:00"),
-		isDone: false
-	},
-];
+function deleteTodo(todo) {
+	let index = todos.indexOf(todo);
+	if (index < 0) return;
 
-// export function renderTodoPageDate() {
-// 	const dateElement = document.querySelector(".header-date");
-
-// 	console.log(dateElement, "date element");
-
-// 	const currentDate = new Date();
-
-// 	dateElement.textContent = `
-// 	${currentDate.toLocaleDateString("sv", { weekday: "long" })},
-// 	${currentDate.toLocaleDateString("sv", { day: "2-digit", month: "long" })}`
-// }
+	todos.splice(index, 1);
+	console.log(todos);
+	renderTodoCards();
+}

@@ -10,8 +10,15 @@
 	--secondary-color: #E3F2FD;
 	--base-color: #F0F4F8;
 	--neutral-color: #64748B;
+	--danger-color: #ff3737;
 
 	--primary-font: "Manrope", sans-serif;
+	--text-color-primary: rgba(0, 0, 0, 0.72);
+	--text-color-secondary: rgba(0, 0, 0, 0.56);
+	--text-color-faded: rgba(0, 0, 0, 0.4);
+
+	--border-color-primary: rgba(0, 0, 0, 0.3);
+	--border-color-faded: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -47,22 +54,4 @@ img {
 button {
 	background: none;
 	border: none;
-}
-
-
-.arrows {
-	height: 2rem;
-	width: 2rem;
-}
-
-.calendar {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 1rem;
-	margin: 0 1rem;
-}
-.card {
-	height: 200px;
-	width: inherit;
-	border: 1px solid #000;
 }
