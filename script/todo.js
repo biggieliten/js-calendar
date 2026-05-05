@@ -2,7 +2,8 @@ let todos;
 
 export function initializeTodoCards(incomingTodos) {
 	todos = incomingTodos;
-
+	addTodo()
+	toggleTodoForm()
 	renderTodoCards()
 };
 
@@ -113,4 +114,61 @@ function deleteTodo(todo) {
 	todos.splice(index, 1);
 	console.log(todos);
 	renderTodoCards();
+}
+
+function addTodo() {
+	const form = document.querySelector(".todo-form");
+	const submitBtn = document.querySelector(".form-submit-btn");
+
+	const newId = todos.last
+
+	form.reset()
+
+	submitBtn.addEventListener("click", () => {
+		if (!form.checkValidity()) {
+			return;
+		}
+
+		const title = document.getElementById('title').value.trim();
+		const description = document.getElementById('description').value.trim();
+		const startAt = document.getElementById('startAt').value.trim();
+		const endAt = document.getElementById('endAt').value.trim();
+
+		const newTodo = {
+			id: todos.length + 1,
+			title,
+			description,
+			createdAt: new Date(),
+			startAt: new Date(startAt),
+			endAt: new Date(endAt),
+			isDone: false
+		}
+
+		todos.push(newTodo);
+
+		form.reset();
+
+		console.log(todos);
+
+		document.querySelector(".todo-form-section").classList.add("hidden");
+		renderTodoCards()
+	})
+
+}
+
+function toggleTodoForm() {
+	const addButton = document.querySelector(".todo-add-btn")
+	const closeButton = document.querySelector(".todo-form-back-btn")
+	// const submitButton = document.querySelector(".")
+
+	const todoForm = document.querySelector(".todo-form-section")
+
+	addButton.addEventListener("click", () => {
+		todoForm.classList.remove("hidden")
+	})
+
+	closeButton.addEventListener("click", () => {
+		todoForm.classList.add("hidden")
+	}
+	)
 }
