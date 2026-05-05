@@ -52,15 +52,17 @@
 	font-size: 12px;
     height: 100%;
     min-width: 40px;
+	position: relative;
 }
 
 .calendar-dot-box {
 	display: flex;
 	gap: 2px;
-    min-width: 40px;
-    max-width: 100%;
-    align-items: center;
+	position: absolute;
+	top: 8px;
+	right: 10px;
 }
+
 
 .calendar-dot-box p {
 	font-size: clamp(10px, 12px, 1rem);
@@ -69,6 +71,7 @@
 }
 
 .calendar-dot {
+	display: none;
 	width: 5px;
 	height: 5px;
 	border-radius: 50%;
@@ -77,10 +80,32 @@
 	align-self: center;
 }
 
+.calendar-text {
+	display: flex;
+	font-size: clamp(10px, 12px, 1rem);
+	color: var(--primary-color);
+	margin-left: 0.2rem;
+}
+
+.calendar-holiday-dot {
+	display: block;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: #ff1e00cb;
+	position: absolute;
+	bottom: 8px;
+	left: 8px;
+
+	align-self: center;
+}
+
 .calendar-holiday-name {
+	display: none;
+	font-size: 0.8rem;
+	position: absolute;
+	bottom: 5px;
 	color: var(--danger-color);
-	hyphens: auto;
-	word-break: break-word;
 }
 
 .shaded-card {
@@ -109,6 +134,14 @@
 	text-align: center;
 }
 
+.todo-count {
+	display: none;
+}
+
+.todo-count-mobile {
+	display: flex;
+}
+
 @media (min-width: 767px) {
 	.calendar-day {
 		font-size: 20px;
@@ -117,4 +150,33 @@
 	.calendar-card {
 		font-size: 16px;
 	}
+
+}
+
+@media (min-width: 1200px) {
+	
+	.todo-count {
+		display: block;
+	}
+	
+	.todo-count-mobile {
+		display: none;
+	}
+
+	.calendar-holiday-dot {
+		display: none;
+	}
+	
+	.calendar-holiday-name {
+		display: flex;
+	}
+
+	.calendar-dot {
+		display: flex;
+	}
+	
+	.calendar-text {
+		display: none;
+	}
+
 }
