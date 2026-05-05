@@ -63,9 +63,20 @@
 .todo-card .todo-check {
 	position: absolute;
 	right: 1rem;
-	top: 50%;
+	top: 10%;
 	width: 1.5rem;
 	height: 1.5rem;
+}
+
+.todo-card .todo-delete-btn {
+	position: absolute;
+	right: 1rem;
+	bottom: 10%;
+	cursor: pointer;
+}
+
+.todo-card .todo-delete-icon {
+	color: var(--danger-color);
 }
 
 @media(max-width: 767px) {
