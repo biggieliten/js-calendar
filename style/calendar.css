@@ -4,8 +4,8 @@
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-    color: var(--text-color-primary);
-    font-family: var(--primary-font);
+	color: var(--text-color-primary);
+	font-family: var(--primary-font);
 }
 
 .calendar-div {
@@ -39,23 +39,43 @@
 }
 
 .calendar-card {
-    flex: 0 0 calc((100% / 7) - calc(30px / 7));
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 5px;
-    aspect-ratio: 1;
-    width: calc((100% / 7) - calc(30px / 7));
-    max-height: 100px;
-    font-size: 12px;
-    position: relative;
+	flex: 0 0 calc((100% / 7) - calc(30px / 7));
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	padding: 5px;
+	aspect-ratio: 1;
+	width: calc((100% / 7) - calc(30px / 7));
+	max-height: 100px;
+	font-size: 12px;
+	position: relative;
+}
+
+.calendar-dot-box {
+	display: flex;
+	gap: 2px;
+}
+
+.calendar-dot-box p {
+	font-size: clamp(10px, 12px, 1rem);
+	color: var(--primary-color);
+	margin-left: 0.2rem;
+}
+
+.calendar-dot {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: var(--primary-color);
+
+	align-self: center;
 }
 
 .calendar-holiday-name {
-    color: #ff1e00cb;
-    font-size: 0.8rem;
-    position: absolute;
-    bottom: 5px;
+	color: #ff1e00cb;
+	font-size: 0.8rem;
+	position: absolute;
+	bottom: 5px;
 }
 
 .calendar-card:hover {
@@ -77,16 +97,16 @@
 }
 
 @media (min-width: 767px) {
-    .calendar-day {
-        font-size: 20px;
-    }
-    
-    .calendar-card {
-        font-size: 16px;
-    }
+	.calendar-day {
+		font-size: 20px;
+	}
 
-    .calendar-holiday-name {
-        color: #ff1e00cb;
-        font-size: 0.8rem;
-    }
+	.calendar-card {
+		font-size: 16px;
+	}
+
+	.calendar-holiday-name {
+		color: #ff1e00cb;
+		font-size: 0.8rem;
+	}
 }
