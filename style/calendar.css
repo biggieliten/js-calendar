@@ -59,7 +59,6 @@
 	display: flex;
 	gap: 2px;
 	position: absolute;
-	top: 8px;
 	right: 10px;
 }
 
@@ -177,6 +176,9 @@
 	
 	.calendar-text {
 		display: none;
+	}
+	.calendar-dot-box {
+		top: 8px;
 	}
 
 }
