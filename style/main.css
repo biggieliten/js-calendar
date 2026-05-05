@@ -7,7 +7,7 @@
 
 :root {
 	--primary-color: #0066be;
-	--secondary-color: #E3F2FD;
+	--secondary-color: #e6f0fa;
 	--base-color: #F0F4F8;
 	--neutral-color: #64748B;
 	--danger-color: #ff3737;
@@ -25,6 +25,10 @@ body {
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
+}
+
+main {
+	width: 100%;
 }
 
 .main-wrapper {
@@ -58,4 +62,8 @@ img {
 button {
 	background: none;
 	border: none;
+}
+
+.hidden {
+	display: none !important;
 }
