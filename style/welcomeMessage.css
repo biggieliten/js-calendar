@@ -1,4 +1,5 @@
 .welcome-section {
+    display: none;
     width: fit-content;
     padding: 5px;
     margin: 5px;
@@ -21,4 +22,10 @@
 
 .capitalize {
     text-transform: capitalize;
+}
+
+@media (min-width: 767px) {
+    .welcome-section {
+        display: block;
+    }
 }
