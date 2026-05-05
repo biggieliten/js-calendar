@@ -140,14 +140,30 @@ function createCalendarCard(date) {
 
     for (let i = 0; i < Math.min(5, todoCount); i++) {
       let dot = document.createElement("div");
+      let text = document.createElement("div");
+
       dot.classList.add("calendar-dot");
+      todoCount > 5
+        ? (text.textContent = todoCount[0])
+        : (text.textContent = todoCount);
+      text.classList.add("calendar-text");
+
       todoCountBox.append(dot);
+      todoCountBox.append(text);
     }
 
     if (todoCount > 5) {
       let todoCountEl = document.createElement("p");
+      let todoCountElMobile = document.createElement("p");
+
+      todoCountEl.classList.add("todo-count");
+      todoCountElMobile.classList.add("todo-count-mobile");
+
       todoCountEl.textContent = `+${todoCount - 5}`;
+      todoCountElMobile.textContent = `${todoCount}`;
+
       todoCountBox.append(todoCountEl);
+      todoCountBox.append(todoCountElMobile);
     }
 
     newCard.append(todoCountBox);
