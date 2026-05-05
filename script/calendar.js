@@ -106,8 +106,9 @@ function createCalendarCard(date) {
   cardInfo.classList.add("calendar-card-info");
   cardInfo.textContent = date.getDate();
 
-  const holiday = getPublicHoliday(new Date(date));
+  newCard.append(cardInfo);
 
+  const holiday = getPublicHoliday(new Date(date));
   if (holiday) {
     const holidayText = document.createElement("span");
     holidayText.classList.add("calendar-holiday-name");
@@ -117,20 +118,8 @@ function createCalendarCard(date) {
     holidayDot.classList.add("calendar-holiday-dot");
     holidayDot.title = holiday;
 
-    cardInfo.append(holidayText);
-    cardInfo.append(holidayDot);
+    newCard.append(holidayDot, holidayText);
   }
-
-  // newCard.append(cardInfo);
-  // return newCard;
-  // let newCard = document.createElement("div");
-  // newCard.classList.add("calendar-card");
-
-  // let cardInfo = document.createElement("p");
-  // cardInfo.classList.add("calendar-card-info");
-  // cardInfo.textContent = date.getDate();
-
-  newCard.append(cardInfo);
 
   let todoCount = countTodosSpecificDate(date);
 

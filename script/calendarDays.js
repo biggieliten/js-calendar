@@ -1,5 +1,6 @@
 const dayElements = [];
 let _locale;
+const main = document.querySelector("main");
 
 export function initializeCalendarDays(locale = "sv") {
   const elements = document.querySelectorAll(".calendar-day");
@@ -24,7 +25,7 @@ function UpdateDayNames(width) {
 }
 
 function getOptionsFromWidth(width) {
-  if (width >= 767) {
+  if (width >= 1000) {
     return { weekday: "long" };
   } else if (width >= 375) {
     return { weekday: "short" };
