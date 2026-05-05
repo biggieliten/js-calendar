@@ -54,6 +54,9 @@
 .calendar-dot-box {
 	display: flex;
 	gap: 2px;
+	position: absolute;
+	top: 8px;
+	right: 10px;
 }
 
 .calendar-dot-box p {
