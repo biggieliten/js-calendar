@@ -123,12 +123,13 @@
 	justify-content: center;
 	gap: 10px;
 	width: 100%;
+	padding: 20px 0;
 }
 
 .calendar-month-year {
 	text-transform: capitalize;
     width: auto;
-	min-width: 100px;
+	min-width: 175px;
     max-width: 100%;
 	text-align: center;
 }
@@ -139,6 +140,12 @@
 
 .todo-count-mobile {
 	display: flex;
+}
+
+.material-symbols-outlined.calendar-arrows {
+	color: var(--primary-color);
+	cursor: pointer;
+	font-size: 50px;
 }
 
 @media (min-width: 767px) {
