@@ -31,10 +31,6 @@ function renderCalendar() {
   renderPreviousMonth();
   renderCurrentMonth();
   renderNextMonth();
-  calendarEl.innerHTML = null;
-  renderPreviousMonth();
-  renderCurrentMonth();
-  renderNextMonth();
 }
 
 function renderPreviousMonth() {
