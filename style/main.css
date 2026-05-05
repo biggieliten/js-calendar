@@ -37,7 +37,7 @@ main {
 }
 
 @media(max-width: 767px) {
-	.aside {
+	.mobile-100 {
 		width: 100%;
 	}
 }
