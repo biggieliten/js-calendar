@@ -16,7 +16,7 @@ export function switchView() {
 
 		// Resets to a default state for mobile view on resize
 		if (previousWidth >= 768 && resizedWidth < 768) {
-			calendarSection.style.display = "block";
+			calendarSection.style.display = "flex";
 			todoWrapper.style.display = "none";
 			todoIcon.classList.remove("active");
 			calendarIcon.classList.add("active");
@@ -24,7 +24,7 @@ export function switchView() {
 
 		// Resets to desktop default state on resize
 		if (previousWidth < 768 && resizedWidth >= 768) {
-			calendarSection.style.display = "block";
+			calendarSection.style.display = "flex";
 			todoWrapper.style.display = "block";
 			todoIcon.classList.remove("active");
 			calendarIcon.classList.remove("active");
