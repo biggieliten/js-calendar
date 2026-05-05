@@ -113,6 +113,26 @@
 	background-color: rgb(247, 247, 247);
 }
 
+.highlighted-card {
+	border-color: var(--primary-color);
+	box-shadow: 3px 3px 3px var(--primary-color);
+	animation: highlighted-card-animation 1s;
+}
+
+@keyframes highlighted-card-animation {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		box-shadow: 3px 3px 3px black;
+		border-color: black;
+		transform: scale(1.15);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
 .calendar-card:hover {
 	background: var(--secondary-color);
 }

@@ -154,6 +154,10 @@ function createCalendarCard(date) {
     newCard.append(todoCountBox);
   }
 
+  if (dateIsToday(date) === true) {
+    newCard.classList.add("highlighted-card");
+  }
+
   return newCard;
 }
 
@@ -257,4 +261,13 @@ function toCapitalCase(str) {
   }
 
   return holiday;
+}
+
+function dateIsToday(date) {
+  let now = new Date();
+  now.setHours(0, 0, 0, 0);
+  let comparer = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+  if (comparer.getTime() === now.getTime()) return true;
+  else return false;
 }
