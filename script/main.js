@@ -1,13 +1,13 @@
 import { switchView } from "./navbar.js";
 import { initializeTodoCards } from "./todo.js";
 import { initializeWelcomeMessage } from "./welcomeMessage.js";
-import { InitializeCalendar } from "./calendar.js";
+import { initializeCalendar } from "./calendar.js";
 import { initializeCalendarDays } from "./calendarDays.js";
 
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
-	InitializeCalendar(todos);
+	initializeCalendar(todos);
 	initializeCalendarDays();
 	initializeTodoCards(todos);
 	initializeWelcomeMessage();
@@ -209,3 +209,4 @@ let todos = [
 		isDone: false
 	}
 ];
+

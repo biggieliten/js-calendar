@@ -15,7 +15,7 @@
 }
 
 .welcome-info-text {
-    color: rgba(0, 0, 0, 0.56);
+    color: var(--text-color-secondary);
     font-weight: 400;
 }
 

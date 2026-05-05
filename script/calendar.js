@@ -13,8 +13,10 @@ const dateOptions = {
 	year: "2-digit"
 };
 
-export function InitializeCalendar(incomingTodos) {
+export async function initializeCalendar(incomingTodos) {
 	todos = incomingTodos;
+
+	await initHolidays();
 	renderCalendar();
 
 	decreaseMonthButton.addEventListener("click", () => changeMonth(-1));
@@ -24,6 +26,11 @@ export function InitializeCalendar(incomingTodos) {
 function renderCalendar() {
 	setMonthYearInfo();
 
+	calendarEl.innerHTML = null;
+
+	renderPreviousMonth();
+	renderCurrentMonth();
+	renderNextMonth();
 	calendarEl.innerHTML = null;
 	renderPreviousMonth();
 	renderCurrentMonth();
@@ -98,6 +105,24 @@ function createCalendarCard(date) {
 	let cardInfo = document.createElement("p");
 	cardInfo.classList.add("calendar-card-info");
 	cardInfo.textContent = date.getDate();
+
+	const holiday = getPublicHoliday(new Date(date));
+	if (holiday) {
+		const holidayName = document.createElement("p");
+		holidayName.className = "calendar-holiday-name";
+		holidayName.textContent = holiday;
+
+		cardInfo.append(holidayName);
+	}
+
+	// newCard.append(cardInfo);
+	// return newCard;
+	// let newCard = document.createElement("div");
+	// newCard.classList.add("calendar-card");
+
+	// let cardInfo = document.createElement("p");
+	// cardInfo.classList.add("calendar-card-info");
+	// cardInfo.textContent = date.getDate();
 
 	newCard.append(cardInfo);
 
@@ -175,4 +200,53 @@ function getDayCountForPreviousMonth(dayOfWeek) {
 		default:
 			return -1;
 	}
+}
+
+let holidays = [];
+
+async function initHolidays() {
+	const res = await fetch("https://api.dagsmart.se/holidays");
+
+	if (!res.ok) {
+		console.error("Error", res.status);
+		holidays = [];
+		return;
+	}
+	holidays = await res.json();
+}
+
+function getPublicHoliday(date) {
+	const dateStr = date.toLocaleDateString("sv-SE");
+
+	let match;
+
+	for (let index = 0; index < holidays.length; index++) {
+		if (holidays[index].date === dateStr) {
+			match = toCapitalCase(holidays[index].name.sv);
+		}
+	}
+
+	if (!match) {
+		return null;
+	}
+	return toCapitalCase(match);
+}
+
+function toCapitalCase(str) {
+	let holiday = "";
+
+	if (str.includes(" ")) {
+		const firstWord = str.split(" ")[0];
+		const secondWord = str.split(" ")[1];
+
+		const firstWordCapitalized =
+			firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
+		const secondWordCapitalized =
+			secondWord.charAt(0).toUpperCase() + secondWord.slice(1);
+		holiday = `${firstWordCapitalized} ${secondWordCapitalized}`;
+	} else {
+		holiday = str.charAt(0).toUpperCase() + str.slice(1);
+	}
+
+	return holiday;
 }
