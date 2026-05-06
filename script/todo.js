@@ -37,7 +37,7 @@ function renderTodoCards() {
       todoSectionCompleted.append(createTodoCard(t, true));
     } else if (today == todoDate) {
       todoSectionToday.append(createTodoCard(t, false));
-    } else {
+    } else if (todoDate > today) {
       todoSectionUpcoming.append(createTodoCard(t, true));
     }
   });
