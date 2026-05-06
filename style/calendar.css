@@ -39,8 +39,8 @@
 
 .calendar-card {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	/* flex-direction: column;
+	justify-content: space-between; */
 
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
@@ -52,8 +52,11 @@
 	position: relative;
 }
 
-.calendar-card-info {
+.calendar-card-day {
+	margin-left: 0.5rem;
 	text-transform: capitalize;
+	font-family: var(--primary-font);
+	color: var(--text-color-primary);
 }
 
 .calendar-dot-box {
@@ -184,6 +187,10 @@
 		font-size: 20px;
 	}
 
+	.calendar-card-day {
+		display: none;
+	}
+
 	.calendar-days {
 		display: grid;
 		grid-template-columns: repeat(7, 1fr);
@@ -195,8 +202,12 @@
 	.calendar-card {
 		font-size: 16px;
 		height: 100%;
+		flex-direction: column;
+		justify-content: space-between;
 
 	}
+
+
 
 	.calendar-container {
 		grid-template-columns: repeat(7, 1fr);

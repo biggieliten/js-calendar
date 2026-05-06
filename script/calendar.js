@@ -103,11 +103,13 @@ function createCalendarCard(date) {
 
   let cardInfo = document.createElement("p");
   cardInfo.classList.add("calendar-card-info");
-  cardInfo.textContent = date.getDate();
-  cardInfo.textContent +=
-    " " + date.toLocaleDateString("sv", { weekday: "long" });
+  let day = document.createElement("p");
+  day.classList.add("calendar-card-day");
 
-  newCard.append(cardInfo);
+  cardInfo.textContent = date.getDate();
+  day.textContent = date.toLocaleDateString("sv", { weekday: "long" });
+
+  newCard.append(cardInfo, day);
 
   const holiday = getPublicHoliday(new Date(date));
   if (holiday) {
