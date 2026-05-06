@@ -123,19 +123,22 @@ function createCalendarCard(date) {
     let todoCountBox = document.createElement("div");
     todoCountBox.classList.add("calendar-dot-box");
 
+    let text = document.createElement("div");
+    text.classList.add("calendar-text");
+
     for (let i = 0; i < Math.min(5, todoCount); i++) {
       let dot = document.createElement("div");
-      let text = document.createElement("div");
 
       dot.classList.add("calendar-dot");
+
       todoCount > 5
         ? (text.textContent = todoCount[0])
         : (text.textContent = todoCount);
-      text.classList.add("calendar-text");
 
       todoCountBox.append(dot);
-      todoCountBox.append(text);
     }
+
+    todoCountBox.append(text);
 
     if (todoCount > 5) {
       let todoCountEl = document.createElement("p");
