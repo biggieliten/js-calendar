@@ -160,8 +160,6 @@ function addTodo() {
 
     form.reset();
 
-    console.log(todos);
-
     document.querySelector(".todo-form-section").classList.add("hidden");
     renderTodoCards();
   });
@@ -170,7 +168,6 @@ function addTodo() {
 function toggleTodoForm() {
   const addButton = document.querySelector(".todo-add-btn");
   const closeButton = document.querySelector(".todo-form-back-btn");
-  // const submitButton = document.querySelector(".")
 
   const todoForm = document.querySelector(".todo-form-section");
 
