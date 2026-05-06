@@ -88,7 +88,7 @@
 }
 
 .calendar-holiday-dot {
-	display: block;
+	display: none;
 	width: 5px;
 	height: 5px;
 	border-radius: 50%;
@@ -101,7 +101,7 @@
 }
 
 .calendar-holiday-name {
-	display: none;
+	display: flex;
 	font-size: 0.8rem;
 	position: absolute;
 	bottom: 5px;
@@ -206,6 +206,16 @@
 
 	.calendar-holiday-dot {
 		left: 8px;
+	}
+}
+
+@media (min-width: 767px)and (max-width: 1199px) {
+	.calendar-holiday-dot {
+		display: flex;
+	}
+
+	.calendar-holiday-name {
+		display: none;
 	}
 }
 
