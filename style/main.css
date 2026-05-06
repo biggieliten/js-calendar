@@ -2,7 +2,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-
 }
 
 :root {
@@ -29,6 +28,7 @@ body {
 
 main {
 	width: 100%;
+	flex-grow: 1;
 }
 
 .main-wrapper {
@@ -37,20 +37,11 @@ main {
 	min-height: 0;
 }
 
-main {
-	flex-grow: 1;
-}
-
 .aside {
 	display: flex;
 	flex-direction: column;
 	max-height: 100%;
-}
-
-@media(max-width: 767px) {
-	.mobile-100 {
-		width: 100%;
-	}
+	flex-grow: 1;
 }
 
 img {
