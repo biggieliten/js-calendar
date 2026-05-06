@@ -1,13 +1,16 @@
 .todo-wrapper {
 	height: 100%;
-	margin: 1rem;
+	margin: 1rem 0 1rem 1rem;
+	padding-right: 0.5rem;
 	width: clamp(250px, 35vw, 30vw);
 	overflow-y: scroll;
+	scrollbar-color: var(--primary-color) var(--secondary-color);
 }
 
 .todo-wrapper h1,
 .todo-wrapper h2 {
 	font-family: var(--primary-font);
+	color: var(--text-color-primary);
 	width: 80%;
 }
 
@@ -32,7 +35,7 @@
 }
 
 .todo-add-icon {
-	margin: 1px 0 0 1px;
+	margin-top: 2px;
 	color: var(--primary-color);
 }
 
