@@ -21,6 +21,8 @@ export async function initializeCalendar(incomingTodos) {
 
   decreaseMonthButton.addEventListener("click", () => changeMonth(-1));
   increaseMonthButton.addEventListener("click", () => changeMonth(1));
+
+  window.addEventListener("resize", scrollToTodaysCardMobile);
 }
 
 function renderCalendar() {
@@ -31,6 +33,7 @@ function renderCalendar() {
   renderPreviousMonth();
   renderCurrentMonth();
   renderNextMonth();
+  scrollToTodaysCardMobile();
 }
 
 function renderPreviousMonth() {
@@ -101,6 +104,8 @@ function createCalendarCard(date) {
   let cardInfo = document.createElement("p");
   cardInfo.classList.add("calendar-card-info");
   cardInfo.textContent = date.getDate();
+  cardInfo.textContent +=
+    " " + date.toLocaleDateString("sv", { weekday: "long" });
 
   newCard.append(cardInfo);
 
@@ -162,6 +167,15 @@ function createCalendarCard(date) {
   }
 
   return newCard;
+}
+
+function scrollToTodaysCardMobile() {
+  if (window.innerWidth > 768) return;
+
+  const highlightedCard = document.querySelector(".highlighted-card");
+  if (highlightedCard) {
+    highlightedCard.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 function countTodosSpecificDate(date) {

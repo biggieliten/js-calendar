@@ -1,5 +1,5 @@
 .calendar-section {
-    height: 100%;
+	height: 100%;
 	min-width: 375px;
 	display: flex;
 	flex-direction: column;
@@ -10,16 +10,13 @@
 
 .calendar-div {
 	display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+	flex-direction: column;
+	flex-grow: 1;
+	overflow-y: scroll;
 }
 
 .calendar-days {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 5px;
-	padding: 5px 5px 0 5px;
-	width: 100%;
+	display: none;
 }
 
 .calendar-day {
@@ -33,11 +30,11 @@
 .calendar-container {
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	grid-template-rows: repeat(6, 1fr);
+	grid-template-columns: repeat(1, 1fr);
+
 	gap: 5px;
 	padding: 5px;
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 .calendar-card {
@@ -50,9 +47,13 @@
 	border-radius: 10px;
 	padding: 5px;
 	font-size: 12px;
-    height: 100%;
-    min-width: 40px;
+	height: 5rem;
+	min-width: 40px;
 	position: relative;
+}
+
+.calendar-card-info {
+	text-transform: capitalize;
 }
 
 .calendar-dot-box {
@@ -87,20 +88,20 @@
 }
 
 .calendar-holiday-dot {
-	display: block;
+	display: none;
 	width: 5px;
 	height: 5px;
 	border-radius: 50%;
 	background-color: #ff1e00cb;
 	position: absolute;
 	bottom: 8px;
-	left: 8px;
+	right: 8px;
 
 	align-self: center;
 }
 
 .calendar-holiday-name {
-	display: none;
+	display: flex;
 	font-size: 0.8rem;
 	position: absolute;
 	bottom: 5px;
@@ -123,11 +124,13 @@
 	0% {
 		transform: scale(1);
 	}
+
 	50% {
 		box-shadow: 3px 3px 3px black;
 		border-color: black;
 		transform: scale(1.15);
 	}
+
 	100% {
 		transform: scale(1);
 	}
@@ -143,14 +146,14 @@
 	justify-content: center;
 	gap: 10px;
 	width: 100%;
-	padding: 20px 0;
+	padding: 10px 0;
 }
 
 .calendar-month-year {
 	text-transform: capitalize;
-    width: auto;
+	width: auto;
 	min-width: 175px;
-    max-width: 100%;
+	max-width: 100%;
 	text-align: center;
 }
 
@@ -169,22 +172,59 @@
 }
 
 @media (min-width: 767px) {
+	.calendar-div {
+		overflow-y: auto;
+	}
+
+	.calendar-month-part {
+		padding: 20px 0;
+	}
+
 	.calendar-day {
 		font-size: 20px;
 	}
 
-	.calendar-card {
-		font-size: 16px;
+	.calendar-days {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: 5px;
+		padding: 5px 5px 0 5px;
+		width: 100%;
 	}
 
+	.calendar-card {
+		font-size: 16px;
+		height: 100%;
+
+	}
+
+	.calendar-container {
+		grid-template-columns: repeat(7, 1fr);
+		grid-template-rows: repeat(6, 1fr);
+		overflow-y: none;
+	}
+
+	.calendar-holiday-dot {
+		left: 8px;
+	}
+}
+
+@media (min-width: 767px)and (max-width: 1199px) {
+	.calendar-holiday-dot {
+		display: flex;
+	}
+
+	.calendar-holiday-name {
+		display: none;
+	}
 }
 
 @media (min-width: 1200px) {
-	
+
 	.todo-count {
 		display: block;
 	}
-	
+
 	.todo-count-mobile {
 		display: none;
 	}
@@ -192,7 +232,7 @@
 	.calendar-holiday-dot {
 		display: none;
 	}
-	
+
 	.calendar-holiday-name {
 		display: flex;
 	}
@@ -200,10 +240,11 @@
 	.calendar-dot {
 		display: flex;
 	}
-	
+
 	.calendar-text {
 		display: none;
 	}
+
 	.calendar-dot-box {
 		top: 8px;
 	}
