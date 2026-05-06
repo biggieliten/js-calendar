@@ -29,6 +29,7 @@ export function switchView() {
       todoWrapper.style.display = "block";
       todoIcon.classList.remove("active");
       calendarIcon.classList.remove("active");
+      aside.classList.remove("hidden");
       main.classList.remove("hidden");
     }
 
