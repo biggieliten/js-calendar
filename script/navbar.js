@@ -6,6 +6,7 @@ export function switchView() {
   const todoWrapper = document.querySelector(".todo-wrapper");
   const calendarSection = document.querySelector(".calendar-section");
   const aside = document.querySelector(".aside");
+  const main = document.querySelector(".main");
 
   // Holds previous width before resize
   let previousWidth = window.innerWidth;
@@ -18,7 +19,6 @@ export function switchView() {
     if (previousWidth >= 768 && resizedWidth < 768) {
       calendarSection.style.display = "flex";
       todoWrapper.style.display = "none";
-      aside.classList.remove("mobile-100");
       todoIcon.classList.remove("active");
       calendarIcon.classList.add("active");
     }
@@ -29,6 +29,7 @@ export function switchView() {
       todoWrapper.style.display = "block";
       todoIcon.classList.remove("active");
       calendarIcon.classList.remove("active");
+      main.classList.remove("hidden");
     }
 
     previousWidth = resizedWidth;
@@ -38,8 +39,8 @@ export function switchView() {
     calendarSection.style.display = "flex";
     todoWrapper.style.display = "none";
 
-    aside.classList.remove("mobile-100");
-
+    main.classList.remove("hidden");
+    aside.classList.add("hidden");
     todoIcon.classList.remove("active");
     calendarIcon.classList.add("active");
   });
@@ -48,8 +49,8 @@ export function switchView() {
     todoWrapper.style.display = "block";
     calendarSection.style.display = "none";
 
-    aside.classList.add("mobile-100");
-
+    main.classList.add("hidden");
+    aside.classList.remove("hidden");
     calendarIcon.classList.remove("active");
     todoIcon.classList.add("active");
   });
